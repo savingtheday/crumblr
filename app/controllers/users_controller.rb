@@ -9,8 +9,30 @@ class UsersController < ApplicationController
       redirect_to 'user/new' #did this work?
     end
   end
-def show
-  @user = User.find(params[:id])
-end
+  def show
+    @user = get_user
+  end
+
+  def update
+    @user = get_user
+    @user_update = @user.update(params[:user])
+    if @user_update
+        flash[:notice] = "success"
+        redirect_to user_path @user
+      else
+        flash[:alert] = "Didn't work"
+        redirect_to user_path @user #did this work?
+      end
+  end
+
+  def edit
+    @user = get_user
+  end
+
+  def get_user
+    User.find(params[:id])
+  end
 
 end
+
+

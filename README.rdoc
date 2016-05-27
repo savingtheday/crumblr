@@ -1,3 +1,4 @@
 == crumblr
 
 Practice app for making social media sites with Ruby on Rails.
+Users can post micro blogs, log in, log out, sign up, and delete their account.
